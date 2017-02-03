@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
+    "dev": "cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --inline --hot --progress",
     "start": "serve build -s -c 1",
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
@@ -69,6 +69,7 @@
     "url-loader": "^0.5.7",
     "v8-lazy-parse-webpack-plugin": "^0.3.0",
     "webpack": "^1.13.2",
+    "webpack-dashboard": "^0.3.0",
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
