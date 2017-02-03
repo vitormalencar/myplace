@@ -7,23 +7,23 @@
 	width: 100%;
 	height: 56px;
 	padding: 0;
-	background: #673AB7;
+	background: @textPrimaryColor;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	z-index: 50;
 
 	h1 {
-		float: left;
+		text-align: center;
 		margin: 0;
 		padding: 0 15px;
 		font-size: 24px;
 		line-height: 56px;
-		font-weight: 400;
-		color: #FFF;
+		color: @darkPrimaryColor;
 	}
 
 	nav {
-		float: right;
+		display: block;
 		font-size: 100%;
+		background-color: @darkPrimaryColor;
 
 		a {
 			display: inline-block;
@@ -37,9 +37,61 @@
 			color: #EEE;
 			will-change: background-color;
 
-			&:hover, &:active {
+			&:active,
+			&:hover {
 				background: rgba(255,255,255,0.3);
 			}
 		}
 	}
+}
+
+.Notification_Label {
+	position: absolute;
+	right: 38px;
+	top: 10px;
+	vertical-align: middle;
+	min-width: 18px;
+	height: 18px;
+	padding: 0 3px;
+	background: @primaryColor;
+	border-radius: 50px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: @textPrimaryColor;
+	text-align: center;
+	line-height: 18px;
+	font-size: 11px;
+	letter-spacing: 0;
+	font-weight: 600;
+	z-index: 99;
+}
+
+.Bag_Icon {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	color: @color_concord_approx;
+	fill: currentColor;
+	font-size: 24px;
+	-webkit-transition: color 0.2s ease 0s;
+	transition: color 0.2s ease 0s;
+}
+
+.Back_Icon {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	color: @color_concord_approx;
+	fill: currentColor;
+	font-size: 24px;
+	-webkit-transition: color 0.2s ease 0s;
+	transition: color 0.2s ease 0s;
 }
