@@ -39,6 +39,7 @@
     "eslint": "^3.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.10.0",
+    "firebase": "^3.6.8",
     "html-webpack-plugin": "^2.22.0",
     "isparta-loader": "^2.0.0",
     "json-loader": "^0.5.4",
@@ -73,6 +74,7 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "preact": "^6.0.0",
     "preact-compat": "^3.0.0",
     "preact-router": "^2.0.0",
