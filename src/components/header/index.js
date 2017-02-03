@@ -3,6 +3,7 @@ import {Link} from 'preact-router';
 import style from './style';
 import FaShoppingBag from 'react-icons/lib/fa/shopping-bag';
 import MdArrowBack from 'react-icons/lib/md/arrow-back';
+import MdAccountBox from 'react-icons/lib/md/account-box';
 
 export default class Header extends Component {
 	render(props) {
@@ -28,7 +29,9 @@ export default class Header extends Component {
 						</Link>
 					</span>
 					<span class="toolbar-button toolbar-button--material">
-						<i class="zmdi zmdi-more-vert"></i>
+						<Link href="/profile">
+							<div class={style.Acount_Icon}><MdAccountBox/></div>
+						</Link>
 					</span>
 				</div>
 			</div>

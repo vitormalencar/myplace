@@ -2,14 +2,16 @@ import {h, Component} from 'preact';
 import {Router} from 'preact-router';
 import Firebase from '../firebaseConfig';
 import {addToCart} from '../lib/cartHelper';
-import {startTransaction} from '../lib/checkoutService';
+import {addTrasaction} from '../lib/profileHelper';
+import {startTransaction, getPayables} from '../lib/checkoutService';
 
 import Cart from './cart';
 import Header from './header';
+import Profile from './profile';
 import Products from './product';
 import Checkout from './checkout';
-import ProductShow from './product/productShow';
 import SnackBar from './snackBar';
+import ProductShow from './product/productShow';
 
 export default class App extends Component {
 
@@ -17,6 +19,8 @@ export default class App extends Component {
 		productList: [],
 		cartList: [],
 		checkoutForm: {},
+		profileTrasactions: [],
+		profilepayables: [],
 		showBackButton: false,
 		snackbar: false,
 		snackBarText: ''
@@ -28,6 +32,8 @@ export default class App extends Component {
 			: false;
 		this.setState({showBackButton});
 		this.currentUrl = e.url;
+		getPayables(1267952);
+
 	};
 
 	addProductToCart = (newProduct) => {
@@ -50,7 +56,9 @@ export default class App extends Component {
 	handleSubmit = (evt) => {
 		evt.preventDefault();
 		startTransaction(this.state.checkoutForm, this.state.totalValue).then(response => {
-			console.log(response);
+			const updatedprofileTrasactions = addTrasaction(this.state.profileTrasactions, response.data);
+			this.setState({cartList: [], profileTrasactions: updatedprofileTrasactions});
+			this.showSnackBar(`Compra de realizada com sucesso veja mais detalhes no seu perfil`);
 		}).catch(errors => {
 			const errorMessage = errors.response.data.errors.map(error => error.message);
 			alert(errorMessage.toString());
@@ -80,6 +88,7 @@ export default class App extends Component {
 				<Header productCount={cartList.length} showBackButton={showBackButton}/>
 				<Router onChange={this.handleRoute}>
 					<Products path="/"/>
+					<Profile path="/profile" profileTrasactions={this.state.profileTrasactions} transactionsCount={'nada'}/>
 					<Cart path="/cart" cartList={cartList} updateCheckoutValue={this.updateCheckoutValue}/>
 					<ProductShow path="/product/:id" addProductToCart={this.addProductToCart}/>
 					<Checkout path='/checkout' handleInputChange={this.handleInputChange} handleSubmit={submitHandler} checkoutData={totalValue}/>

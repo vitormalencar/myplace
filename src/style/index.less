@@ -33,7 +33,16 @@ a:hover {
 
 #app {
 	height: 100%;
-	margin-top:40px;
+	margin-top: 40px;
+}
+ul{
+	padding: 0;
+}
+
+ul li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .list__item__left {
@@ -882,4 +891,43 @@ a:hover {
 		-webkit-background-size: 100% 2px, 100% 2px;
 		background-size: 100% 2px, 100% 2px;
 	}
+}
+
+.Data-Title {
+	display: block;
+	height: 60px;
+	padding: 0 20px;
+	background: #f9f8f7;
+	color: #7d7a77;
+	text-align: left;
+}
+
+.Data-List__item {
+	text-align: justify;
+	text-justify: distribute;
+	line-height: 0;
+	padding: 15px 20px;
+	border-bottom: 1px solid #f9f8f7;
+	line-height: 0;
+}
+
+.Data-List__label {
+	display: inline-block;
+	vertical-align: middle;
+	color: #7d7a77;
+}
+
+.Data-List__value {
+	display: inline-block;
+	vertical-align: middle;
+	color: #5b5855;
+	float: right;
+}
+
+.Data-List__item::after {
+    content: '';
+    height: 0;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
 }
