@@ -7,6 +7,7 @@ import MdArrowBack from 'react-icons/lib/md/arrow-back';
 export default class Header extends Component {
 	render(props) {
 		return (
+			<div class={style.header}>
 			<div class="navigation-bar navigation-bar--material">
 				<div class="navigation-bar__left navigation-bar--material__left">
 					<span class="toolbar-button toolbar-button--material">
@@ -30,6 +31,7 @@ export default class Header extends Component {
 						<i class="zmdi zmdi-more-vert"></i>
 					</span>
 				</div>
+			</div>
 			</div>
 		);
 	}

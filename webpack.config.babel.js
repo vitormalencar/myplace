@@ -99,23 +99,6 @@ module.exports = {
     }])
   ]).concat(ENV === 'production' ? [
     new V8LazyParseWebpackPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      output: {
-        comments: false
-      },
-      compress: {
-        warnings: false,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-        negate_iife: false
-      }
-    }),
 
     // strip out babel-helper invariant checks
     new ReplacePlugin([{
