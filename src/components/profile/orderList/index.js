@@ -54,8 +54,8 @@ export const PayableList = ({payablesItem}) => {
 						</li>
 						<hr/>
 					</div>
-				)
+				);
 			})}
 		</ul>
-	)
-}
+	);
+};

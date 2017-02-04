@@ -81,7 +81,7 @@ export default class App extends Component {
 			const updatedprofilepayables = addTrasaction(this.state.profilepayables, response.data);
 			this.setState({profilepayables: updatedprofilepayables});
 		}).catch(errors => {
-			console.log(errors)
+			console.log(errors);
 		});
 	}
 
