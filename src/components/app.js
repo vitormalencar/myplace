@@ -18,7 +18,18 @@ export default class App extends Component {
 	state = {
 		productList: [],
 		cartList: [],
-		checkoutForm: {},
+		checkoutForm: {
+			name: '',
+			email: '',
+			cpf: '',
+			zipcode: '',
+			neighborhood: '',
+			street: '',
+			streetNumber: '',
+			phone: '',
+			ddi: '',
+			ddd: ''
+		},
 		profileTrasactions: [],
 		profilepayables: [],
 		showBackButton: false,
@@ -32,8 +43,6 @@ export default class App extends Component {
 			: false;
 		this.setState({showBackButton});
 		this.currentUrl = e.url;
-		getPayables(1267952);
-
 	};
 
 	addProductToCart = (newProduct) => {
@@ -49,19 +58,30 @@ export default class App extends Component {
 	handleInputChange = (evt) => {
 		const name = evt.target.name;
 		const value = evt.target.value;
-		const state = Object.assign(this.state.checkoutForm, {[name]: value});
+		const state = Object.assign(this.state.checkoutForm,{[name]: value});
 		this.setState({checkoutForm: state});
 	}
 
 	handleSubmit = (evt) => {
 		evt.preventDefault();
 		startTransaction(this.state.checkoutForm, this.state.totalValue).then(response => {
+			this.setState({checkoutForm: {}});
 			const updatedprofileTrasactions = addTrasaction(this.state.profileTrasactions, response.data);
+			this.handlePayables(response.data.tid);
 			this.setState({cartList: [], profileTrasactions: updatedprofileTrasactions});
 			this.showSnackBar(`Compra de realizada com sucesso veja mais detalhes no seu perfil`);
 		}).catch(errors => {
 			const errorMessage = errors.response.data.errors.map(error => error.message);
 			alert(errorMessage.toString());
+		});
+	}
+
+	handlePayables = (id) => {
+		getPayables(id).then(response => {
+			const updatedprofilepayables = addTrasaction(this.state.profilepayables, response.data);
+			this.setState({profilepayables: updatedprofilepayables});
+		}).catch(errors => {
+			console.log(errors)
 		});
 	}
 
@@ -79,19 +99,26 @@ export default class App extends Component {
 		const submitHandler = this.state.cartList.length > 0
 			? this.handleSubmit
 			: this.handleEmptySubmit;
-
-		const {snackbar, snackBarText, cartList, showBackButton, totalValue} = this.state;
+		const {
+			snackbar,
+			snackBarText,
+			cartList,
+			showBackButton,
+			totalValue,
+			checkoutForm,
+			profileTrasactions
+		} = this.state;
 
 		return (
 			<div id="app">
 				<SnackBar actionText="OK" show={snackbar} snackBarText={snackBarText}/>
-				<Header productCount={cartList.length} showBackButton={showBackButton}/>
+				<Header productCount={cartList.length} showBackButton={showBackButton} transactionsCount={profileTrasactions.length}/>
 				<Router onChange={this.handleRoute}>
 					<Products path="/"/>
-					<Profile path="/profile" profileTrasactions={this.state.profileTrasactions} transactionsCount={'nada'}/>
+					<Profile path="/profile" profileTrasactions={this.state.profileTrasactions} profilepayables={this.state.profilepayables}/>
 					<Cart path="/cart" cartList={cartList} updateCheckoutValue={this.updateCheckoutValue}/>
 					<ProductShow path="/product/:id" addProductToCart={this.addProductToCart}/>
-					<Checkout path='/checkout' handleInputChange={this.handleInputChange} handleSubmit={submitHandler} checkoutData={totalValue}/>
+					<Checkout path='/checkout' handleInputChange={this.handleInputChange} handleSubmit={submitHandler} checkoutData={totalValue} checkoutForm={checkoutForm}/>
 				</Router>
 			</div>
 		);

@@ -5,7 +5,7 @@ import {CheckoutForm} from './checkoutForm';
 export default class Checkout extends Component {
 	render() {
 		return (
-      <div>
+      <div class={style.checkout}>
         <CheckoutForm  {...this.props}/>
       </div>
 		);

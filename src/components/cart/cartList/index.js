@@ -8,7 +8,7 @@ export const CartList = (props) => {
 				<img class="list__item__thumbnail list__item--material__thumbnail" src={props.cover_img}/>
 			</div>
 			<div class="list__item__center list__item--material__center">
-				<div class="list__item__title list__item--material__title">NOME DO PRODUTO</div>
+				<div class="list__item__title list__item--material__title">{props.name}</div>
 			</div>
 		</li>
 	);

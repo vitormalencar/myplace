@@ -16,10 +16,10 @@ export const CartDetail = (props) => {
 	return (
 		<div class={style.details}>
 			<p>SUB-TOTAL:
-				<span class={style.right_info}>$ {subtotal}</span>
+				<span class={style.right_info}>R$ {subtotal}</span>
 			</p>
-			<p>FRETE:<span class={style.right_info}>$ {frete}</span></p>
-			<p class={style.amount}>TOTAL: <span class={style.right_info}>$ {total}</span></p>
+			<p>FRETE:<span class={style.right_info}>R$ {frete}</span></p>
+			<p class={style.amount}>TOTAL: <span class={style.right_info}>R$ {total}</span></p>
 			<Link href='/checkout'>
 				<Actionbutton actionhandler={updateCheckoutValue} label='Realizar checkout'/>
 			</Link>

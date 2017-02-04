@@ -29,6 +29,7 @@ export default class Header extends Component {
 						</Link>
 					</span>
 					<span class="toolbar-button toolbar-button--material">
+						{props.transactionsCount > 0 && <span class={style.Notification_Label_rigth}>{props.transactionsCount}</span>}
 						<Link href="/profile">
 							<div class={style.Acount_Icon}><MdAccountBox/></div>
 						</Link>
