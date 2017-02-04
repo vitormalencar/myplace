@@ -23,27 +23,5 @@ describe('App', () => {
 	});
 
 
-	describe('routing', () => {
-		it('should render the homepage', () => {
-			render(<App />, scratch);
 
-			expect(scratch.innerHTML).to.contain('Home');
-		});
-
-		it('should render /profile', () => {
-			render(<App />, scratch);
-			route('/profile');
-			rerender();
-
-			expect(scratch.innerHTML).to.contain('Profile: me');
-		});
-
-		it('should render /profile/:user', () => {
-			render(<App />, scratch);
-			route('/profile/john');
-			rerender();
-
-			expect(scratch.innerHTML).to.contain('Profile: john');
-		});
-	});
 });

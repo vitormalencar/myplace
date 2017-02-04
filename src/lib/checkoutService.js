@@ -3,15 +3,7 @@ import Axios from 'axios';
 const API_KEY = 'ak_test_KW6UxdUqXx3nPHKYXQiCH1InzBtklx';
 
 export const getPayables = (id) => {
-	Axios.get(`https://api.pagar.me/1/transactions/${id}/payables`, {
-		params: {
-			api_key: API_KEY,
-		}
-	}).then(function(response) {
-		console.log(response);
-	}).catch(function(error) {
-		console.log(error);
-	});
+	return Axios.get(`https://api.pagar.me/1/transactions/${id}/payables`, {params: {api_key: API_KEY}})
 }
 
 export const startTransaction = (obj, amount) => {

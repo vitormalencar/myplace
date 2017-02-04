@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --inline --hot --progress",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
     "start": "serve build -s -c 1",
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
@@ -18,7 +18,7 @@
     "webpack"
   ],
   "license": "MIT",
-  "author": "Jason Miller <jason@developit.ca>",
+  "author": "vitormalencar",
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel": "^6.5.2",
