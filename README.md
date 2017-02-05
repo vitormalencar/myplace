@@ -181,4 +181,11 @@ Note that the suffix for local classNames is generated based on an md5 hash of t
 # Pingdom
 
 ![](https://firebasestorage.googleapis.com/v0/b/myplace-d196a.appspot.com/o/Captura%20de%20Tela%202017-02-03%20a%CC%80s%2022.47.57.png?alt=media&token=b11cc380-99e3-4547-97f4-e05abbcb5e0a)
+
+# Disclamer
+
+I know that this project needs a lot of [improvements](https://blog.prototypr.io/you-will-write-bad-code-94081bb66bec#.c5bv0cmjo),and I will certainly do it,
+This was my first tryout with these technologies, and  always good to keep in mind of what matters most is the  [continuous improvement](https://www.youtube.com/watch?v=QLbUzwxkwHA),
+aways keep on hacking, and wait for the new improvements.
+
 MIT
