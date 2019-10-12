@@ -87,7 +87,7 @@ npm run build
 >
 > **[Netlify](https://www.netlify.com/docs/cli/) Example:** `netlify deploy`
 >
-> [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/developit/preact-boilerplate)
+> [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/developit/preact-boilerplate) [![Greenkeeper badge](https://badges.greenkeeper.io/vitormalencar/myplace.svg)](https://greenkeeper.io/)
 
 
 **5. Start local production server with [serve](https://github.com/zeit/serve):**
